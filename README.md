@@ -82,5 +82,6 @@ Better error handling
 Frontend UI improvements
 
 Author:
-Milan Bhati
+Milan Bhati,
+milanbhati2210@gmail.com
 B.Tech Computer Science Student
