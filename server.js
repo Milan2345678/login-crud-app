@@ -1,19 +1,18 @@
-const express = require("express")
-const mongoose = require("mongoose")
+const express = require("express");
+const mongoose = require("mongoose");
 
-const app = express()
+const app = express();
 
-app.use(express.json())
-app.use(express.static("public"))
+app.use(express.json());
+app.use(express.static("public"));
 
-mongoose.connect("mongodb://127.0.0.1:27017/loginDB")
-.then(() => console.log("MongoDB Connected"))
-.catch(err => console.log(err))
+const connectDB = require("./config/db"); // or correct path
 
-const userRoutes = require("./routes/userRoutes")
+connectDB();
+const userRoutes = require("./routes/userRoutes");
 
-app.use("/api/users", userRoutes)
+app.use("/api/users", userRoutes);
 
 app.listen(3000, () => {
-  console.log("Server running on port 3000")
-})
+  console.log("Server running on port 3000");
+});

@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Register</title>
 </head>
+
 <body>
 
-<h2>Register</h2>
+  <h2>Register</h2>
 
-<form id="registerForm">
-  <input type="text" id="registerUsername" placeholder="Username" required>
-  <br><br>
-  <input type="password" id="registerPassword" placeholder="Password" required>
-  <br><br>
-  <button type="submit">Register</button>
-</form>
+  <form id="registerForm">
+    <input type="text" id="username" placeholder="Username" required>
+    <br><br>
+    <input type="password" id="password" placeholder="Password" required>
+    <br><br>
+    <input type="email" id="email" placeholder="Email" required />
+    <br><br>
+    <input type="text" id="phone" placeholder="Phone" required>
+    <br><br>
+    <input type="text" id="address" placeholder="Address" required>
+    <br><br>
+    <select id="gender" name="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
 
-<p>Already have an account?</p>
-<a href="login.html">Login</a>
 
-<script src="script.js"></script>
+    <button type="submit">Register</button>
+  </form>
+
+  <p>Already have an account?</p>
+  <a href="login.html">Login</a>
+
+  <script src="script.js"></script>
 
 </body>
+
 </html>
