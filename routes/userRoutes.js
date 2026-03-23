@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const authorizeRoles = require("../middleware/roleMiddleware");
 // ✅ Import middleware FIRST
 const auth = require("../middleware/auth");
 
@@ -22,13 +22,28 @@ router.post("/register", registerUser);
 router.post("/login", loginUser);
 
 // ✅ GET ALL USERS
-router.get("/", getUsers);
+router.get(
+  "/",
+  auth,
+  authorizeRoles("admin"),
+  getUsers
+);
 
 // ✅ UPDATE USER
-router.put("/:id", updateUser);
+router.put(
+  "/:id",
+  auth,
+  authorizeRoles("admin", "user"),
+  updateUser
+);
 
 // ✅ DELETE USER
-router.delete("/:id", deleteUser);
+router.delete(
+  "/delete-user/:id",
+  auth,
+  authorizeRoles("admin"),
+  deleteUser
+);
 
 // ✅ PROTECTED ROUTE (ONLY ONCE)
 router.get("/profile", auth, (req, res) => {
